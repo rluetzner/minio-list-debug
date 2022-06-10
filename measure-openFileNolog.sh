@@ -30,5 +30,5 @@ for i in $(seq $min_folders $max_folders); do
         echo `(time $mc cp file $bucket/$i/file$j --quiet --insecure >>/dev/null) 2>&1` >> $outfile_prefix.PUT.$min_folders.$max_folders.$files_per_folder.csv
     done
     ((object_count=object_count+files_per_folder))
-    ./openFileNolog $bucket_mount | tee -a $outfile_prefix.OPEN.$min_folders.$max_folders.$files_per_folder.csv
+    ./walkdir $bucket_mount | tee -a $outfile_prefix.OPEN.$min_folders.$max_folders.$files_per_folder.csv
 done

@@ -24,6 +24,18 @@ $ ./walkdir /path/to/minio/bucket
 go build -o walkdir
 ```
 
+## Run the measurement
+
+```bash
+# Register an alias
+mc alias set nasxl https://localhost:9000 <accesskey> <secretkey>
+
+# Create an empty bucket
+mc mb nasxl/test20000
+
+./measure-openFileNolog.sh nasxl/test20000 1 400 50 /gluster/repositories/<repo>/<space>/test20000
+```
+
 ## FAQ
 
 ### Where does the code come from?
