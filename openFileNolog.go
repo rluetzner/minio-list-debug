@@ -19,6 +19,7 @@ func main() {
 	name := os.Args[1]
 	// filepath.WalkDir(name, visit)
 
+	name = strings.TrimSuffix(name, SlashSeparator)
 	split := strings.Split(name, SlashSeparator)
 	basePath := strings.Join(split[:len(split)-1], SlashSeparator)
 	bucket := split[len(split)-1]
