@@ -20,5 +20,4 @@ fit[0:15000] f(x) filename using 1:2 via m,q
 # set object 1 rect from 90,725 to 200, 650 fc rgb "white"
 # set label 1 at 100,700 mq_value
 
-plot filename using 1:2 with linespoint, f(x) ls 2 t 'Linear regression'
-pause -1
+plot filename using 1:2 with linespoint, f(x) ls 2 t 'Linear regression (range 0-15,000)'

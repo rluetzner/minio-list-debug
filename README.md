@@ -39,7 +39,8 @@ mc mb nasxl/test20000
 ## Plot the results with GnuPlot
 
 ```bash
-gnuplot -e "filename='/path/to/output.csv'" ./plot.plt
+# --persist will keep the plot window open
+gnuplot --persist -e "filename='/path/to/output.csv'" ./plot.plt
 ```
 
 The resulting plot should look like this:
