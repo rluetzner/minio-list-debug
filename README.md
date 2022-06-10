@@ -36,6 +36,16 @@ mc mb nasxl/test20000
 ./measure-openFileNolog.sh nasxl/test20000 1 400 50 /gluster/repositories/<repo>/<space>/test20000
 ```
 
+## Plot the results with GnuPlot
+
+```bash
+gnuplot -e "filename='/path/to/output.csv'" ./plot.plt
+```
+
+The resulting plot should look like this:
+
+![resources/example-plot.png](resources/example-plot.png)
+
 ## FAQ
 
 ### Where does the code come from?
