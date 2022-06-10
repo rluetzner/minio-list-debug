@@ -99,7 +99,6 @@ func (s *xlStorage) WalkDir(ctx context.Context, opts WalkDirOptions) int {
 			// as part of the list call, this is a AWS S3 specific
 			// behavior.
 			totalFiles += 1
-			fmt.Println(opts.BaseDir)
 			/*
 				out <- metaCacheEntry{
 					name:     opts.BaseDir,
@@ -200,7 +199,6 @@ func (s *xlStorage) WalkDir(ctx context.Context, opts WalkDirOptions) int {
 					meta.name = decodeDirObject(meta.name)
 				*/
 				totalFiles += 1
-				fmt.Println(strings.TrimSuffix(entry, xlStorageFormatFile))
 				// out <- meta
 				return nil
 			}
@@ -220,7 +218,6 @@ func (s *xlStorage) WalkDir(ctx context.Context, opts WalkDirOptions) int {
 					meta.name = pathJoin(current, meta.name)
 				*/
 				totalFiles += 1
-				fmt.Println(strings.TrimSuffix(entry, xlStorageFormatFile))
 				//out <- meta
 				return nil
 			}
@@ -251,7 +248,6 @@ func (s *xlStorage) WalkDir(ctx context.Context, opts WalkDirOptions) int {
 			for len(dirStack) > 0 && dirStack[len(dirStack)-1] < metaname {
 				pop := dirStack[len(dirStack)-1]
 				totalFiles += 1
-				fmt.Println(pop)
 				//out <- metaCacheEntry{name: pop}
 				if opts.Recursive {
 					// Scan folder we found. Should be in correct sort order where we are.
@@ -282,14 +278,12 @@ func (s *xlStorage) WalkDir(ctx context.Context, opts WalkDirOptions) int {
 				}
 				//out <- meta
 				totalFiles += 1
-				fmt.Println(metaname)
 			case osIsNotExist(err), isSysErrIsDir(err):
 				_, err = ReadFile(pathJoin(volumeDir, metaname, xlStorageFormatFileV1))
 				if err == nil {
 					// It was an object
 					// out <- meta
 					totalFiles += 1
-					fmt.Println(metaname)
 					continue
 				}
 
@@ -311,7 +305,6 @@ func (s *xlStorage) WalkDir(ctx context.Context, opts WalkDirOptions) int {
 		for len(dirStack) > 0 {
 			pop := dirStack[len(dirStack)-1]
 			totalFiles += 1
-			fmt.Println(pop)
 			// out <- metaCacheEntry{name: pop}
 			if opts.Recursive {
 				// Scan folder we found. Should be in correct sort order where we are.
