@@ -14,8 +14,8 @@ The tool outputs a CSV line, e.g.
 
 ```bash
 $ ./walkdir /path/to/minio/bucket
-# Number of files; UNUSED; Total duration
-209394;0.000000;41.505417
+# Number of files; Total duration
+209394;1.854680
 ```
 
 ## Building
