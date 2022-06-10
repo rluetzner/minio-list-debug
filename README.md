@@ -66,8 +66,17 @@ as a basis, which at that time was the latest commit on the
 ### What about the Goroutines that were there?
 
 I commented all of them out, because the code runs synchronously anyway.
-I've had them in place, but I don't think that it should affect the
+I've kept them in place, but I don't think that it should affect the
 runtime significantly.
+
+I also ran into some trouble where the code would either return an
+incorrect count or deadlock. The deadlock occurred because the main
+routine was waiting for a separate counting Goroutine. The counting
+routine blocked and waited for input from the channel and would not
+unblock, even when the channel was closed.
+
+Rather than fixing this, I opted to comment out the code and do
+everything synchronously.
 
 ### What about error handling?
 
