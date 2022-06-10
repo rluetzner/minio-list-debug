@@ -5,6 +5,24 @@ logic. Changes had to be made to get this code to compile. I sadly
 started versioning too late, otherwise it could have been even clearer
 which parts of the code I had to change.
 
+The tool will **only work on MinIO buckets**. It will recurse on other
+paths as well, but the algorithm is designed for `xl.meta` files and
+`__XLDIR__` directories and will not count other files or directories
+properly.
+
+The tool outputs a CSV line, e.g.
+
+```bash
+$ ./walkdir /path/to/minio/bucket
+# Number of files; UNUSED; Total duration
+209394;0.000000;41.505417
+```
+
+## Building
+
+```bash
+go build -o walkdir
+```
 
 ## FAQ
 
